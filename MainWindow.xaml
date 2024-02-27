@@ -1,0 +1,28 @@
+﻿<Window x:Class="WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="249*"/>
+            <ColumnDefinition Width="551*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Row="0" Margin="20" >
+            <Button Click="AddUser_Click" Content="Добавить" Width="183"  Margin="0 0 0 5"/>
+            <Button Click="Exit_Click" Content="Выход" Width="184" />
+        </StackPanel>
+        <ListView Name="userListView" Margin="77,20,186,0" Grid.Column="1" SelectionChanged="userListView_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="ID" DisplayMemberBinding="{Binding Id}" />
+                    <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding FullName}"/>
+                    <GridViewColumn Header="Дата рождения" DisplayMemberBinding="{Binding BirthDate}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>
